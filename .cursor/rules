@@ -41,16 +41,17 @@ globs: \*_/_.{ts,tsx}
 
 ---
 
-name: radix-ui-best-practices.mdc
-description: Best practices for using Radix UI components
+name: react-aria-best-practices.mdc
+description: Best practices for using React Aria components instead of Radix UI
 globs: \*_/_.{ts,tsx}
 
 ---
 
-- Use Radix UI primitives for building custom, accessible components
-- Follow Radix UI's recommended accessibility patterns
-- Customize Radix UI components using the `asChild` prop for better composition
-- Utilize Radix UI's built-in state management for controlled components
+- Use React Aria hooks and components for building accessible UI components
+- Follow React Aria's accessibility patterns and ARIA specifications
+- Implement custom styling with React Aria's headless components
+- Utilize React Aria's state management hooks for controlled components
+- Use React Aria's focus management and keyboard navigation features
 
 ---
 
@@ -143,3 +144,15 @@ Follow these rules when you write code:
 - In JSX, do not leave empty lines unless you are using them as a comment.
 - Use cn from utils/cn.ts to merge tailwind classes.
 - Use absolute imports for everything.
+- Use React Aria instead of Radix UI for accessible components
+- Implement Motion (framer-motion) for smooth animations and transitions
+- Create semantic HTML with proper ARIA labels and roles for SEO and accessibility
+- Use function declarations instead of arrow functions for components
+- Always use named exports for components
+- Use kebab-case for file names
+- Don't leave empty lines in JSX
+- Use flex and gap instead of space-y or space-x in Tailwind
+- Import React hooks and components directly, not React.something
+- Use useTransition for loading states instead of useState with isLoading
+- Function types should be inline, not in a separate type declaration unless used in multiple places
+- Never use the any type in TypeScript
