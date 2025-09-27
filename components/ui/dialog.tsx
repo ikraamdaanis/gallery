@@ -50,6 +50,8 @@ export interface DialogContentProps
   children?: AriaDialogProps["children"];
   role?: AriaDialogProps["role"];
   closeButton?: boolean;
+  ariaLabel?: string;
+  ariaLabelledby?: string;
 }
 
 export function DialogContent({
@@ -57,6 +59,8 @@ export function DialogContent({
   children,
   role,
   closeButton = true,
+  ariaLabel,
+  ariaLabelledby,
   ...props
 }: DialogContentProps) {
   return (
@@ -70,6 +74,8 @@ export function DialogContent({
       {...props}
     >
       <AriaDialog
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
         role={role}
         className={cn("grid h-full gap-4", "h-full outline-none")}
       >
