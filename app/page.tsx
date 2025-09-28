@@ -6,6 +6,7 @@ import { Navigation } from "components/navigation";
 import { Button } from "components/ui/button";
 import { getFeaturedArtPieces } from "data/art-pieces";
 import { motion } from "framer-motion";
+import { luxeSerif } from "styles/fonts";
 
 /**
  * @url /
@@ -27,10 +28,12 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="mb-16 text-center"
             >
-              <h2 className="mb-4 text-4xl font-light text-neutral-900 md:text-5xl">
+              <h2
+                className={`${luxeSerif.className} mb-4 text-3xl font-light text-neutral-900 md:text-5xl`}
+              >
                 Featured Collection
               </h2>
-              <p className="mx-auto max-w-2xl text-lg text-neutral-600">
+              <p className="mx-auto max-w-2xl text-lg text-balance text-neutral-600">
                 Discover our most prestigious pieces, each representing the
                 pinnacle of artistic achievement and investment potential.
               </p>
@@ -50,10 +53,12 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="mb-6 text-4xl font-light text-neutral-900">
+              <h2
+                className={`${luxeSerif.className} mb-6 text-3xl font-light text-neutral-900`}
+              >
                 Acquire Masterpieces
               </h2>
-              <p className="mb-8 text-lg text-neutral-600">
+              <p className="mb-8 text-lg text-balance text-neutral-600">
                 Each piece in our collection represents not just artistic
                 excellence, but a sound investment in cultural heritage. Our
                 expert curation team ensures authenticity and provenance for

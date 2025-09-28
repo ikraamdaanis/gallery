@@ -3,13 +3,7 @@
 import { Button } from "components/ui/button";
 import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
-
-const luxeSerif = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  display: "swap"
-});
+import { luxeSerif } from "styles/fonts";
 
 export function HeroSection() {
   const textVariants: Variants = {
@@ -60,7 +54,7 @@ export function HeroSection() {
           }}
         >
           <motion.h1
-            className={`${luxeSerif.className} mb-6 text-5xl font-semibold tracking-tight text-neutral-900 md:text-7xl lg:text-8xl`}
+            className={`${luxeSerif.className} mb-6 text-5xl font-semibold tracking-tight text-neutral-900 sm:text-6xl md:text-7xl lg:text-8xl`}
             variants={textVariants}
           >
             Sovereign
@@ -74,7 +68,7 @@ export function HeroSection() {
             Curated masterpieces for the world&apos;s most discerning collectors
           </motion.p>
           <motion.p
-            className="mx-auto mb-12 max-w-2xl text-lg text-neutral-500"
+            className="mx-auto mb-12 max-w-2xl text-lg text-balance text-neutral-500"
             variants={textVariants}
           >
             Acquire rare works by Old Masters and modern icons, presented with

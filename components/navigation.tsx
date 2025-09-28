@@ -1,23 +1,17 @@
 "use client";
 
 import { Button } from "components/ui/button";
-import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { luxeSerif } from "styles/fonts";
 import { cn } from "utils/cn";
-
-const luxeSerif = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  display: "swap"
-});
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 0);
     }
 
     handleScroll();
@@ -47,7 +41,7 @@ export function Navigation() {
         <div className="hidden items-center gap-8 md:flex">
           <nav className="flex items-center gap-6">
             <Link
-              href="/art"
+              href="/collection"
               className="text-neutral-600 transition-colors hover:text-neutral-900"
               aria-label="View art collection"
             >

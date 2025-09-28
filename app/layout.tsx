@@ -1,17 +1,9 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
 import { Toaster } from "sonner";
+import { geistSans, luxeSerif } from "styles/fonts";
 import "styles/globals.css";
-
-const geistSans = Geist({ subsets: ["latin"] });
-const luxeSerif = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-luxe-serif"
-});
 
 export const metadata: Metadata = {
   title: "Sovereign Atelier - World's Most Exquisite Art Collection",
