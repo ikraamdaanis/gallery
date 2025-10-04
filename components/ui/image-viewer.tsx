@@ -34,8 +34,7 @@ export function ImageViewer({ src, alt }: { src: string; alt: string }) {
               <img
                 src={src}
                 alt={alt}
-                sizes="95vw"
-                className="object-scale-down object-center"
+                className="h-full max-h-[calc(100dvh-2rem)] w-full max-w-[calc(100vw-2rem)] object-scale-down object-center"
               />
             </section>
           )}
