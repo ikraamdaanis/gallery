@@ -3,7 +3,6 @@
 import { Button } from "components/ui/button";
 import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
-import { luxeSerif } from "styles/fonts";
 
 export function HeroSection() {
   const textVariants: Variants = {
@@ -54,7 +53,7 @@ export function HeroSection() {
           }}
         >
           <motion.h1
-            className={`${luxeSerif.className} mb-6 text-5xl font-semibold tracking-tight text-neutral-900 sm:text-6xl md:text-7xl lg:text-8xl`}
+            className="font-playfair mb-6 text-5xl font-semibold tracking-tight text-neutral-900 sm:text-6xl md:text-7xl lg:text-8xl"
             variants={textVariants}
           >
             Sovereign

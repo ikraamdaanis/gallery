@@ -1,13 +1,20 @@
 "use client";
 
+import { createFileRoute } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { Navigation } from "components/navigation";
 import { getAllArtPieces } from "data/art-pieces";
 import { motion } from "framer-motion";
-import { luxeSerif } from "styles/fonts";
 
-export default function CollectionPage() {
-  const pieces = getAllArtPieces();
+export const Route = createFileRoute("/collection/")({
+  component: CollectionPage,
+  loader: () => {
+    return getAllArtPieces();
+  }
+});
+
+function CollectionPage() {
+  const pieces = Route.useLoaderData();
 
   return (
     <div className="min-h-screen bg-white">
@@ -18,7 +25,7 @@ export default function CollectionPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`${luxeSerif.className} mb-8 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl`}
+            className="font-playfair mb-8 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl"
           >
             Collection
           </motion.h1>

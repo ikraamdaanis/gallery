@@ -1,23 +1,32 @@
-import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 import filenamesSimple from "eslint-plugin-filenames-simple";
 import noRelativeImportPaths from "eslint-plugin-no-relative-import-paths";
+import globals from "globals";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname
-});
-
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
   ...[
     js.configs.recommended,
     {
+      files: ["**/*.ts", "**/*.tsx"],
+      languageOptions: {
+        parser: tsParser,
+        parserOptions: {
+          project: true,
+          tsconfigRootDir: __dirname,
+          ecmaVersion: "latest",
+          sourceType: "module"
+        },
+        globals: {
+          ...globals.browser
+        }
+      },
       plugins: {
         "@typescript-eslint": tsPlugin,
         "no-relative-import-paths": noRelativeImportPaths,
@@ -50,7 +59,13 @@ const eslintConfig = [
         ]
       }
     }
-  ]
+  ],
+  {
+    files: ["app/__root.tsx"],
+    rules: {
+      "filenames-simple/naming-convention": "off"
+    }
+  }
 ];
 
 export default eslintConfig;

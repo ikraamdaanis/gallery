@@ -1,20 +1,18 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import type { ArtPiece } from "data/art-pieces";
 import { formatPrice } from "data/art-pieces";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { cn } from "utils/cn";
 
-interface ArtCardProps {
+type ArtCardProps = {
   artPiece: ArtPiece;
   index: number;
-}
+};
 
 export function ArtCard({ artPiece, index }: ArtCardProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -31,11 +29,10 @@ export function ArtCard({ artPiece, index }: ArtCardProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link
-        href={`/art/${artPiece.id}`}
-        scroll
+        to="/art/$id"
+        params={{ id: artPiece.id }}
         aria-label={`View details for ${artPiece.title} by ${artPiece.artist}`}
         className="block"
-        prefetch
       >
         <div className="relative overflow-hidden bg-neutral-100">
           <motion.div
@@ -44,20 +41,12 @@ export function ArtCard({ artPiece, index }: ArtCardProps) {
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <div className="relative h-full w-full">
-              {!imageLoaded && (
-                <div className="absolute inset-0 animate-pulse bg-neutral-200" />
-              )}
-              <Image
+              <img
                 src={artPiece.imageUrl}
                 alt={`${artPiece.title} by ${artPiece.artist}`}
                 className={cn(
-                  "h-full w-full object-cover transition-opacity duration-300",
-                  imageLoaded ? "opacity-100" : "opacity-0"
+                  "h-full w-full object-cover transition-opacity duration-300"
                 )}
-                onLoad={() => setImageLoaded(true)}
-                priority
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <motion.div
                 className="absolute inset-0 bg-black/20"

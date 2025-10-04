@@ -1,11 +1,10 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import { Button } from "components/ui/button";
 import { Menu } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { luxeSerif } from "styles/fonts";
 import { cn } from "utils/cn";
 
 export function Navigation() {
@@ -31,20 +30,15 @@ export function Navigation() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/">
-          <h2
-            className={cn(
-              luxeSerif.className,
-              "text-3xl font-semibold tracking-tight text-neutral-900"
-            )}
-          >
+        <Link to="/">
+          <h2 className="font-playfair text-3xl font-semibold tracking-tight text-neutral-900">
             Sovereign <span className="italic">Atelier</span>
           </h2>
         </Link>
         <div className="hidden items-center gap-8 md:flex">
           <nav className="flex items-center gap-6">
             <Link
-              href="/collection"
+              to="/collection"
               className="text-neutral-600 transition-colors hover:text-neutral-900"
               aria-label="View art collection"
             >
@@ -109,7 +103,7 @@ export function Navigation() {
                 }}
               >
                 <Link
-                  href="/collection"
+                  to="/"
                   className="text-neutral-700"
                   aria-label="View art collection"
                 >

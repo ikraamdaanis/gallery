@@ -1,5 +1,4 @@
-"use client";
-
+import { createFileRoute } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { HeroSection } from "components/hero-section";
 import { Navigation } from "components/navigation";
@@ -7,11 +6,13 @@ import { Button } from "components/ui/button";
 import { getFeaturedArtPieces } from "data/art-pieces";
 import { motion } from "framer-motion";
 
-/**
- * @url /
- */
-export default function HomePage() {
-  const featuredArtPieces = getFeaturedArtPieces();
+export const Route = createFileRoute("/")({
+  component: RouteComponent,
+  loader: () => getFeaturedArtPieces()
+});
+
+function RouteComponent() {
+  const featuredArtPieces = Route.useLoaderData();
 
   return (
     <div className="min-h-screen bg-white">

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/playfair-display";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -53,6 +56,11 @@
   --color-chart-5: hsl(var(--chart-5));
 
   --color-icon: hsl(var(--icon));
+}
+
+@theme inline {
+  --font-geist: "Geist Variable", sans-serif;
+  --font-playfair: "Playfair Display Variable", serif;
 }
 
 /*
@@ -159,6 +167,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-geist);
   }
 }
 

@@ -1,22 +1,32 @@
 "use client";
 
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import NotFound from "app/art/$id/not-found";
 import { Navigation } from "components/navigation";
 import { Button } from "components/ui/button";
 import { ImageViewer } from "components/ui/image-viewer";
 import { formatPrice, getArtPieceById } from "data/art-pieces";
 import { motion } from "framer-motion";
 import { ArrowLeft, Heart, Share2 } from "lucide-react";
-import { notFound, useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { luxeSerif } from "styles/fonts";
 
-export default function ArtPiecePage() {
-  const params = useParams();
-  const router = useRouter();
+export const Route = createFileRoute("/art/$id/")({
+  component: ArtPiecePage,
+  loader: ({ params }) => {
+    return getArtPieceById(params.id);
+  },
+  errorComponent: NotFound
+});
+
+function ArtPiecePage() {
+  const params = Route.useParams();
+  const router = useNavigate();
   const artPiece = getArtPieceById(params.id as string);
 
-  if (!artPiece) notFound();
+  if (!artPiece) {
+    throw new Error("Art piece not found");
+  }
 
   function handleInquire() {
     toast.success("Inquiry sent!", {
@@ -52,7 +62,7 @@ export default function ArtPiecePage() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => router.back()}
+            onClick={() => router({ to: "/collection" })}
             className="gap-2 pl-0 transition-all ease-in-out hover:pl-4"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -86,7 +96,7 @@ export default function ArtPiecePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className={`${luxeSerif.className} mb-2 text-4xl font-light tracking-tight text-neutral-900 md:text-5xl`}
+                className="font-playfair mb-2 text-4xl font-light tracking-tight text-neutral-900 md:text-5xl"
               >
                 {artPiece.title}
               </motion.h1>
@@ -94,7 +104,7 @@ export default function ArtPiecePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className={`${luxeSerif.className} mb-4 text-xl text-neutral-600 italic`}
+                className="font-playfair mb-4 text-xl text-neutral-600 italic"
               >
                 {artPiece.artist}
               </motion.p>
@@ -207,9 +217,7 @@ export default function ArtPiecePage() {
           className="mt-20 border-t border-neutral-200 py-16"
         >
           <div className="mx-auto max-w-4xl text-center">
-            <h2
-              className={`${luxeSerif.className} mb-6 text-3xl font-light text-neutral-900`}
-            >
+            <h2 className="font-playfair mb-6 text-3xl font-light text-neutral-900">
               Investment Opportunity
             </h2>
             <p className="mb-8 text-lg text-balance text-neutral-600">
