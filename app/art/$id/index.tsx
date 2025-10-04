@@ -2,13 +2,13 @@
 
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import NotFound from "app/art/$id/not-found";
+import { ArtCard } from "components/art-card";
 import { Navigation } from "components/navigation";
 import { Button } from "components/ui/button";
 import { ImageViewer } from "components/ui/image-viewer";
-import { formatPrice, getArtPieceById } from "data/art-pieces";
+import { formatPrice, getAllArtPieces, getArtPieceById } from "data/art-pieces";
 import { motion } from "framer-motion";
 import { ArrowLeft, Heart, Share2 } from "lucide-react";
-import { useEffect } from "react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/art/$id/")({
@@ -21,12 +21,13 @@ export const Route = createFileRoute("/art/$id/")({
 
 function ArtPiecePage() {
   const params = Route.useParams();
-  const router = useNavigate();
-  const artPiece = getArtPieceById(params.id as string);
 
-  if (!artPiece) {
-    throw new Error("Art piece not found");
-  }
+  const router = useNavigate();
+
+  const artPiece = getArtPieceById(params.id);
+  const moreArtPieces = getMoreArtPieces(artPiece?.id ?? "", 4);
+
+  if (!artPiece) throw new Error("Art piece not found");
 
   function handleInquire() {
     toast.success("Inquiry sent!", {
@@ -44,10 +45,6 @@ function ArtPiecePage() {
       description: `"${artPiece?.title}" has been saved to your collection.`
     });
   }
-
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -69,14 +66,14 @@ function ArtPiecePage() {
             Back to Collection
           </Button>
         </motion.div>
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="min-h-[calc(100dvh-6rem)] lg:top-24">
+            <div className="lg:top-24 lg:min-h-[calc(100dvh-6rem)]">
               <div className="relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-neutral-100 outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2">
                 <ImageViewer
                   src={artPiece.imageUrl}
@@ -214,7 +211,7 @@ function ArtPiecePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mt-20 border-t border-neutral-200 py-16"
+          className="mt-16 bg-[#EDE8E6] py-16"
         >
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-playfair mb-6 text-3xl font-light text-neutral-900">
@@ -227,7 +224,6 @@ function ArtPiecePage() {
             </p>
             <Button
               size="lg"
-              className="bg-[#EDE8E6] text-black hover:bg-[#EDE8E6]/80"
               onClick={() =>
                 toast.success("Consultation scheduled!", {
                   description:
@@ -240,6 +236,40 @@ function ArtPiecePage() {
           </div>
         </motion.section>
       </main>
+      <section id="more-art" className="py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-playfair mb-4 text-3xl font-light text-neutral-900">
+              More to Discover
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-balance text-neutral-600">
+              Explore additional works from our collection curated just for you.
+            </p>
+          </motion.div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:gap-6">
+            {moreArtPieces.map((piece, index) => (
+              <ArtCard key={piece.id} artPiece={piece} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
+}
+
+function getMoreArtPieces(excludeId: string, take: number) {
+  const pool = getAllArtPieces().filter(p => p.id !== excludeId);
+
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  return pool.slice(0, take);
 }
