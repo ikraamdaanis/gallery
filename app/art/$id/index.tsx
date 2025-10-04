@@ -211,7 +211,7 @@ function ArtPiecePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mt-16 bg-[#EDE8E6] py-16"
+          className="bg-brand mt-16 py-16"
         >
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="font-playfair mb-6 text-3xl font-light text-neutral-900">

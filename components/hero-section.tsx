@@ -36,7 +36,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#EDE8E6]">
+    <section className="bg-brand relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/30 to-neutral-100/20" />
       </div>

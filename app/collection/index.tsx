@@ -19,7 +19,7 @@ function CollectionPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main className="pt-24">
+      <main className="mb-12 pt-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.h1
             initial={{ opacity: 0, y: 10 }}

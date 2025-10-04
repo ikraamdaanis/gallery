@@ -7,17 +7,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-50: #fffcfa;
-  --color-brand-100: #fffcfa;
-  --color-brand-200: #fff5f0;
-  --color-brand-300: #fff2eb;
-  --color-brand-400: #ffece0;
-  --color-brand-500: #ffe6d8;
-  --color-brand-600: #ffc8a8;
-  --color-brand-700: #ffa875;
-  --color-brand-800: #ff711f;
-  --color-brand-900: #c74900;
-  --color-brand-950: #8f3400;
+  --color-brand: #ede8e6;
 
   --color-offwhite: #fdfdfd;
   --color-background: hsl(var(--background));

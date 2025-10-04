@@ -8,7 +8,7 @@ export default function ArtNotFound() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main className="flex min-h-screen items-center justify-center bg-[#EDE8E6] pt-20">
+      <main className="bg-brand flex min-h-screen items-center justify-center pt-20">
         <div className="mx-auto max-w-md text-center">
           <div className="mb-6 text-6xl">🎨</div>
           <h1 className="font-playfair mb-4 text-4xl font-light text-neutral-900">
