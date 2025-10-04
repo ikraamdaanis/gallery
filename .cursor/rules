@@ -2,16 +2,18 @@ Before diving into the best practices, please note that you may need to adapt th
 
 ---
 
-name: nextjs-best-practices.mdc
-description: Best practices for Next.js applications and routing
+name: tanstack-start-best-practices.mdc
+description: Best practices for TanStack Start applications and routing
 globs: \*_/_.{ts,tsx}
 
 ---
 
-- Utilize Turbopack for faster builds and development
-- Implement server-side rendering for improved SEO and performance
-- Use Next.js Image component for optimized image loading
-- Leverage Next.js API routes for serverless functions
+- Use Vite with @tanstack/react-start plugin for dev and builds
+- Define route loaders/actions for SSR/streaming data and mutations
+- Manage SEO with createRootRoute head() and <HeadContent />
+- Add global CSS and favicons via head() links (e.g., appCss, /favicon.ico)
+- Use @tanstack/react-router file-based routes (\_\_root, $id, index) and <Outlet />
+- Optimize images with responsive sizes, modern formats, and lazy/decoding attributes
 
 ---
 

@@ -227,7 +227,7 @@ function ArtPiecePage() {
             </p>
             <Button
               size="lg"
-              variant="outline"
+              className="bg-[#EDE8E6] text-black hover:bg-[#EDE8E6]/80"
               onClick={() =>
                 toast.success("Consultation scheduled!", {
                   description:

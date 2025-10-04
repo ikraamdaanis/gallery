@@ -13,21 +13,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": ".",
-    "paths": {
-      "app/*": ["app/*"],
-      "components/*": ["components/*"],
-      "styles/*": ["styles/*"],
-      "utils/*": ["utils/*"],
-      "hooks/*": ["hooks/*"],
-      "data/*": ["data/*"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": ["@serwist/next/typings"]
+    "baseUrl": "."
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
   "exclude": ["node_modules"]
