@@ -51,13 +51,13 @@ export function Navigation() {
             >
               Artists
             </a>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="text-neutral-600 transition-colors hover:text-neutral-900"
-              aria-label="About Prestige Gallery"
+              aria-label="About Sovereign Atelier"
             >
               About
-            </a>
+            </Link>
           </nav>
           <Button
             variant="outline"
@@ -116,13 +116,13 @@ export function Navigation() {
                 >
                   Artists
                 </a>
-                <a
-                  href="#about"
+                <Link
+                  to="/about"
                   className="text-neutral-700"
-                  aria-label="About Prestige Gallery"
+                  aria-label="About Sovereign Atelier"
                 >
                   About
-                </a>
+                </Link>
                 <Button
                   variant="outline"
                   size="sm"

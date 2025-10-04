@@ -6,7 +6,7 @@ type FooterLink = {
 };
 
 const companyLinks: FooterLink[] = [
-  { label: "About" },
+  { label: "About", href: "/about" },
   { label: "Collection", href: "/collection" },
   { label: "Advisory" },
   { label: "Journal" }

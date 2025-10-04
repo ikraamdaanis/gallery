@@ -7,6 +7,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { AcquirePieces } from "components/acquire-pieces";
 import { Footer } from "components/footer";
+import { Navigation } from "components/navigation";
 import type { ReactNode } from "react";
 import { Toaster } from "sonner";
 import appCss from "styles/globals.css?url";
@@ -46,6 +47,7 @@ export function RootDocument({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <Navigation />
         {children}
         <AcquirePieces />
         <Footer />

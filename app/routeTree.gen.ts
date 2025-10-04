@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './__root'
 import { Route as IndexRouteImport } from './index'
 import { Route as CollectionIndexRouteImport } from './collection/index'
+import { Route as AboutIndexRouteImport } from './about/index'
 import { Route as ArtIdIndexRouteImport } from './art/$id/index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const CollectionIndexRoute = CollectionIndexRouteImport.update({
   path: '/collection/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArtIdIndexRoute = ArtIdIndexRouteImport.update({
   id: '/art/$id/',
   path: '/art/$id/',
@@ -31,30 +37,34 @@ const ArtIdIndexRoute = ArtIdIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutIndexRoute
   '/collection': typeof CollectionIndexRoute
   '/art/$id': typeof ArtIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutIndexRoute
   '/collection': typeof CollectionIndexRoute
   '/art/$id': typeof ArtIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about/': typeof AboutIndexRoute
   '/collection/': typeof CollectionIndexRoute
   '/art/$id/': typeof ArtIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/collection' | '/art/$id'
+  fullPaths: '/' | '/about' | '/collection' | '/art/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/collection' | '/art/$id'
-  id: '__root__' | '/' | '/collection/' | '/art/$id/'
+  to: '/' | '/about' | '/collection' | '/art/$id'
+  id: '__root__' | '/' | '/about/' | '/collection/' | '/art/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   CollectionIndexRoute: typeof CollectionIndexRoute
   ArtIdIndexRoute: typeof ArtIdIndexRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CollectionIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/art/$id/': {
       id: '/art/$id/'
       path: '/art/$id'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutIndexRoute: AboutIndexRoute,
   CollectionIndexRoute: CollectionIndexRoute,
   ArtIdIndexRoute: ArtIdIndexRoute,
 }
