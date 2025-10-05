@@ -26,8 +26,8 @@ function RouteComponent() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {featuredArtPieces.map((artPiece, i) => (
-              <ArtCard key={artPiece.id} artPiece={artPiece} eager={i < 4} />
+            {featuredArtPieces.map(artPiece => (
+              <ArtCard key={artPiece.id} artPiece={artPiece} />
             ))}
           </div>
         </div>

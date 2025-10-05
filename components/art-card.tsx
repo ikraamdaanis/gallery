@@ -7,13 +7,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "utils/cn";
 
-export function ArtCard({
-  artPiece,
-  eager = false
-}: {
-  artPiece: ArtPiece;
-  eager?: boolean;
-}) {
+export function ArtCard({ artPiece }: { artPiece: ArtPiece }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
