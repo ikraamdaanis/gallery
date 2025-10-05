@@ -60,7 +60,7 @@ export function HeroSection() {
       <div className="absolute -right-24 -bottom-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgba(200,200,255,0.26),transparent)] blur-2xl" />
       <div className="relative mx-auto grid min-h-[80vh] max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-20 pb-10 md:grid-cols-2 md:py-20">
         <div className="order-1 md:order-1">
-          <h1 className="mb-4 text-5xl font-light tracking-tight text-neutral-900 sm:text-6xl md:text-7xl">
+          <h1 className="mb-4 text-5xl font-light tracking-tight text-balance text-neutral-900 md:text-5xl lg:text-6xl xl:text-7xl">
             Acquire the Most Prestigious Pieces
           </h1>
           <p className="mb-4 max-w-2xl text-lg text-neutral-600 md:text-xl">
