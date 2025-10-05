@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { HeroSection } from "components/hero-section";
 import { getFeaturedArtPieces } from "data/art-pieces";
-import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -17,13 +16,7 @@ function RouteComponent() {
       <HeroSection />
       <section id="featured-art" className="py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16 text-center"
-          >
+          <div className="mb-16 text-center">
             <h2 className="font-playfair mb-4 text-3xl font-light text-neutral-900 md:text-5xl">
               Featured Collection
             </h2>
@@ -31,10 +24,10 @@ function RouteComponent() {
               Discover our most prestigious pieces, each representing the
               pinnacle of artistic achievement and investment potential.
             </p>
-          </motion.div>
+          </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {featuredArtPieces.map((artPiece, index) => (
-              <ArtCard key={artPiece.id} artPiece={artPiece} index={index} />
+            {featuredArtPieces.map((artPiece, i) => (
+              <ArtCard key={artPiece.id} artPiece={artPiece} eager={i < 4} />
             ))}
           </div>
         </div>

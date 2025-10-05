@@ -1,7 +1,6 @@
 "use client";
 
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import NotFound from "app/art/$id/not-found";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { Button } from "components/ui/button";
 import { ImageViewer } from "components/ui/image-viewer";
@@ -15,13 +14,33 @@ export const Route = createFileRoute("/art/$id/")({
   loader: ({ params }) => {
     return getArtPieceById(params.id);
   },
-  errorComponent: NotFound
+  errorComponent: () => {
+    return (
+      <main className="bg-brand flex min-h-screen items-center justify-center pt-20">
+        <div className="mx-auto max-w-md text-center">
+          <div className="mb-6 text-6xl">🎨</div>
+          <h1 className="font-playfair mb-4 text-4xl font-light text-neutral-900">
+            Artwork Not Found
+          </h1>
+          <p className="mb-8 text-neutral-600">
+            The artwork you&apos;re looking for doesn&apos;t exist in our
+            collection.
+          </p>
+          <Link to="/">
+            <Button className="bg-neutral-900 text-white hover:bg-neutral-800">
+              Return to Gallery
+            </Button>
+          </Link>
+        </div>
+      </main>
+    );
+  }
 });
 
 function ArtPiecePage() {
   const params = Route.useParams();
 
-  const router = useNavigate();
+  const router = useRouter();
 
   const artPiece = getArtPieceById(params.id);
   const moreArtPieces = getMoreArtPieces(artPiece?.id ?? "", 4);
@@ -47,29 +66,28 @@ function ArtPiecePage() {
 
   return (
     <main className="mx-auto max-w-7xl px-6 pt-20">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="mb-4"
-      >
+      <div className="mb-4">
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => router({ to: "/collection" })}
+          onClick={() => {
+            if (document.startViewTransition) {
+              document.startViewTransition(() => {
+                router.history.back();
+              });
+            } else {
+              // Fallback for browsers that don't support View Transitions
+              router.history.back();
+            }
+          }}
           className="gap-2 pl-0 transition-all ease-in-out hover:pl-4"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Collection
         </Button>
-      </motion.div>
+      </div>
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative"
-        >
+        <div className="relative">
           <div className="lg:top-24 lg:min-h-[calc(100dvh-6rem)]">
             <div className="relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-neutral-100 outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2">
               <ImageViewer
@@ -78,7 +96,7 @@ function ArtPiecePage() {
               />
             </div>
           </div>
-        </motion.div>
+        </div>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -246,8 +264,8 @@ function ArtPiecePage() {
             </p>
           </motion.div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:gap-6">
-            {moreArtPieces.map((piece, index) => (
-              <ArtCard key={piece.id} artPiece={piece} index={index} />
+            {moreArtPieces.map(piece => (
+              <ArtCard key={piece.id} artPiece={piece} />
             ))}
           </div>
         </div>

@@ -7,23 +7,17 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "utils/cn";
 
-type ArtCardProps = {
+export function ArtCard({
+  artPiece,
+  eager = false
+}: {
   artPiece: ArtPiece;
-  index: number;
-};
-
-export function ArtCard({ artPiece, index }: ArtCardProps) {
+  eager?: boolean;
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }}
+    <article
       className="group relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -45,7 +39,7 @@ export function ArtCard({ artPiece, index }: ArtCardProps) {
                 src={artPiece.imageUrl}
                 alt={`${artPiece.title} by ${artPiece.artist}`}
                 className={cn(
-                  "h-full w-full object-cover transition-opacity duration-300"
+                  "block h-full w-full object-cover transition-opacity duration-300"
                 )}
               />
               <motion.div
@@ -57,12 +51,7 @@ export function ArtCard({ artPiece, index }: ArtCardProps) {
             </div>
           </motion.div>
         </div>
-        <motion.div
-          className="mt-4 flex flex-col gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: index * 0.1 + 0.3 }}
-        >
+        <div className="mt-4 flex flex-col gap-2">
           <div>
             <h3 className="text-lg font-medium text-neutral-900">
               {artPiece.title}
@@ -79,8 +68,8 @@ export function ArtCard({ artPiece, index }: ArtCardProps) {
               {artPiece.rarity}
             </span>
           </div>
-        </motion.div>
+        </div>
       </Link>
-    </motion.article>
+    </article>
   );
 }
