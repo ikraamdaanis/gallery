@@ -8,11 +8,11 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './__root'
-import { Route as IndexRouteImport } from './index'
-import { Route as CollectionIndexRouteImport } from './collection/index'
-import { Route as AboutIndexRouteImport } from './about/index'
-import { Route as ArtIdIndexRouteImport } from './art/$id/index'
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollectionIndexRouteImport } from './routes/collection/index'
+import { Route as AboutIndexRouteImport } from './routes/about/index'
+import { Route as ArtIdIndexRouteImport } from './routes/art/$id/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
