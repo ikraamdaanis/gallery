@@ -1,17 +1,16 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { useRouter } from "@tanstack/react-router";
-import { A as ArtCard } from "./art-card-WDxZBGcm.js";
-import { c as cn, B as Button$1, b as Route, g as getArtPieceById, f as formatPrice, d as getAllArtPieces } from "./router-B5VqjvSb.js";
+import { A as ArtCard } from "./art-card-UdcSj2xA.js";
+import { c as cn, B as Button$1, b as Route, g as getArtPieceById, f as formatPrice, d as getAllArtPieces } from "./router-BPXlzOvD.js";
 import { X, ArrowLeft, Heart, Share2 } from "lucide-react";
 import { ModalOverlay, composeRenderProps, Modal, Dialog, Button } from "react-aria-components";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 import "@vercel/analytics/react";
 import "class-variance-authority";
 import "clsx";
 import "tailwind-merge";
-import "motion/react";
 function DialogOverlay({
   className,
   isDismissable = true,

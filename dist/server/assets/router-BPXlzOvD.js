@@ -5,9 +5,8 @@ import { cva } from "class-variance-authority";
 import { Button as Button$1, composeRenderProps } from "react-aria-components";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Menu } from "lucide-react";
-import { AnimatePresence, motion as motion$1 } from "motion/react";
 import { useState, useEffect } from "react";
 import { Toaster } from "sonner";
 function cn(...inputs) {
@@ -203,7 +202,7 @@ function Navigation() {
           ) })
         ] }),
         /* @__PURE__ */ jsx(AnimatePresence, { initial: false, children: menuOpen && /* @__PURE__ */ jsx(
-          motion$1.div,
+          motion.div,
           {
             id: "mobile-menu",
             className: "border-t border-neutral-200 bg-white md:hidden",
@@ -212,7 +211,7 @@ function Navigation() {
             exit: { opacity: 0, height: 0, y: -8 },
             transition: { duration: 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
             children: /* @__PURE__ */ jsx("div", { className: "mx-auto max-w-7xl px-6 py-4", children: /* @__PURE__ */ jsxs(
-              motion$1.nav,
+              motion.nav,
               {
                 className: "flex flex-col gap-4",
                 initial: { opacity: 0, y: -8 },
@@ -495,22 +494,22 @@ function formatPrice(price, currency) {
     maximumFractionDigits: 0
   }).format(price);
 }
-const $$splitComponentImporter$3 = () => import("./index-BVb3mf8I.js");
+const $$splitComponentImporter$3 = () => import("./index-CKN0dQPN.js");
 const Route$3 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$3, "component"),
   loader: () => getFeaturedArtPieces()
 });
-const $$splitComponentImporter$2 = () => import("./index-CBuOXjYK.js");
+const $$splitComponentImporter$2 = () => import("./index-DQP5xqBt.js");
 const Route$2 = createFileRoute("/collection/")({
   component: lazyRouteComponent($$splitComponentImporter$2, "component"),
   loader: () => getAllArtPieces()
 });
-const $$splitComponentImporter$1 = () => import("./index-BRqVx3IM.js");
+const $$splitComponentImporter$1 = () => import("./index-9FN-TkZF.js");
 const Route$1 = createFileRoute("/about/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitErrorComponentImporter = () => import("./index-BPUX27AT.js");
-const $$splitComponentImporter = () => import("./index-DKWB42Rs.js");
+const $$splitErrorComponentImporter = () => import("./index-QM0ge2Cg.js");
+const $$splitComponentImporter = () => import("./index-DmgkD3iI.js");
 const Route = createFileRoute("/art/$id/")({
   component: lazyRouteComponent($$splitComponentImporter, "component"),
   loader: ({

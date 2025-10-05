@@ -3,7 +3,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ArtPiece } from "data/art-pieces";
 import { formatPrice } from "data/art-pieces";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { cn } from "utils/cn";
 

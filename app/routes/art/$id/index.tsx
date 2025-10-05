@@ -5,8 +5,8 @@ import { ArtCard } from "components/art-card";
 import { Button } from "components/ui/button";
 import { ImageViewer } from "components/ui/image-viewer";
 import { formatPrice, getAllArtPieces, getArtPieceById } from "data/art-pieces";
-import { motion } from "framer-motion";
 import { ArrowLeft, Heart, Share2 } from "lucide-react";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/art/$id/")({

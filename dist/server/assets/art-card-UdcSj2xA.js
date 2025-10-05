@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
-import { c as cn, f as formatPrice } from "./router-B5VqjvSb.js";
-import { motion } from "framer-motion";
+import { c as cn, f as formatPrice } from "./router-BPXlzOvD.js";
+import { motion } from "motion/react";
 import { useState } from "react";
 function ArtCard({ artPiece }) {
   const [isHovered, setIsHovered] = useState(false);

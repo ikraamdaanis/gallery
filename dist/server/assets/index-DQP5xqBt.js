@@ -1,8 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { A as ArtCard } from "./art-card-WDxZBGcm.js";
-import { a as Route } from "./router-B5VqjvSb.js";
+import { A as ArtCard } from "./art-card-UdcSj2xA.js";
+import { a as Route } from "./router-BPXlzOvD.js";
 import "@tanstack/react-router";
-import "framer-motion";
+import "motion/react";
 import "react";
 import "@vercel/analytics/react";
 import "class-variance-authority";
@@ -10,7 +10,6 @@ import "react-aria-components";
 import "clsx";
 import "tailwind-merge";
 import "lucide-react";
-import "motion/react";
 import "sonner";
 function CollectionPage() {
   const pieces = Route.useLoaderData();

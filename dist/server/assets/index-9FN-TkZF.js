@@ -1,5 +1,5 @@
 import { jsxs, jsx } from "react/jsx-runtime";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion } from "motion/react";
 import { useRef } from "react";
 function AboutPage() {
   const heroRef = useRef(null);

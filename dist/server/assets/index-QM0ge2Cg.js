@@ -1,14 +1,13 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
-import { B as Button } from "./router-B5VqjvSb.js";
+import { B as Button } from "./router-BPXlzOvD.js";
 import "@vercel/analytics/react";
 import "class-variance-authority";
 import "react-aria-components";
 import "clsx";
 import "tailwind-merge";
-import "framer-motion";
-import "lucide-react";
 import "motion/react";
+import "lucide-react";
 import "react";
 import "sonner";
 const SplitErrorComponent = () => {

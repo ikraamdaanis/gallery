@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
 export const Route = createFileRoute("/about/")({

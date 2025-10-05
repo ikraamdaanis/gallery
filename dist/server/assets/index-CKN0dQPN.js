@@ -1,7 +1,7 @@
 import { jsxs, jsx } from "react/jsx-runtime";
-import { A as ArtCard } from "./art-card-WDxZBGcm.js";
-import { B as Button, R as Route } from "./router-B5VqjvSb.js";
-import { AnimatePresence, motion } from "framer-motion";
+import { A as ArtCard } from "./art-card-UdcSj2xA.js";
+import { B as Button, R as Route } from "./router-BPXlzOvD.js";
+import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState, useEffect } from "react";
 import "@tanstack/react-router";
 import "@vercel/analytics/react";
@@ -10,7 +10,6 @@ import "react-aria-components";
 import "clsx";
 import "tailwind-merge";
 import "lucide-react";
-import "motion/react";
 import "sonner";
 function HeroSection() {
   function handleExploreClick() {
