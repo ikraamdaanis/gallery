@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/playfair-display": "^5.2.8",
+    "@netlify/vite-plugin-tanstack-start": "^1.0.2",
     "@react-aria/button": "^3.14.1",
     "@react-aria/focus": "^3.21.1",
     "@react-aria/interactions": "^3.25.5",
