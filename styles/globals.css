@@ -160,6 +160,10 @@
     font-family: var(--font-geist);
   }
 
+  html {
+    overflow-anchor: none;
+  }
+
   h1,
   h2,
   h3,
