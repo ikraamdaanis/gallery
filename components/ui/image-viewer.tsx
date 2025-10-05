@@ -13,7 +13,7 @@ export function ImageViewer({ src, alt }: { src: string; alt: string }) {
       <img
         src={src}
         alt={alt}
-        className="h-full w-full object-cover transition-transform hover:scale-105"
+        className="h-full w-full object-cover"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         onClick={() => setIsOpen(true)}
       />

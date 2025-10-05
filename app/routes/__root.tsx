@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts
 } from "@tanstack/react-router";
-import { Analytics } from "@vercel/analytics/react";
 import { AcquirePieces } from "components/acquire-pieces";
 import { Footer } from "components/footer";
 import { Navigation } from "components/navigation";
@@ -52,7 +51,6 @@ function RootDocument({ children }: { children: ReactNode }) {
         <AcquirePieces />
         <Footer />
         <Toaster position="top-center" richColors closeButton />
-        <Analytics debug={false} />
         <Scripts />
       </body>
     </html>

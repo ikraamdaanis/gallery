@@ -20,7 +20,6 @@
     "@react-stately/toggle": "^3.9.1",
     "@tanstack/react-router": "^1.132.33",
     "@tanstack/react-start": "^1.132.35",
-    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
