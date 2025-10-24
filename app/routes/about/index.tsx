@@ -43,7 +43,7 @@ function AboutPage() {
           >
             Curating Legacy,
             <br />
-            <span className="italic">Defining Value</span>
+            <span className="tracking-[0.020rem] italic">Defining Value</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}

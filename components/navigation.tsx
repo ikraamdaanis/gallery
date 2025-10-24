@@ -44,13 +44,7 @@ export function Navigation() {
             >
               Collection
             </Link>
-            <a
-              href="#artists"
-              className="text-neutral-600 transition-colors hover:text-neutral-900"
-              aria-label="Browse artists"
-            >
-              Artists
-            </a>
+
             <Link
               to="/about"
               className="text-neutral-600 transition-colors hover:text-neutral-900"
