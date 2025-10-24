@@ -9,6 +9,9 @@ export default defineConfig({
   server: {
     port: 3000
   },
+  ssr: {
+    noExternal: ["motion/react", "sonner"]
+  },
   plugins: [
     tailwindcss(),
     // Enables Vite to resolve imports using path aliases.
@@ -24,7 +27,7 @@ export default defineConfig({
         enabled: true,
 
         // How many prerender jobs to run at once
-        concurrency: 14,
+        concurrency: 4,
 
         // Whether to extract links from the HTML and prerender them also
         crawlLinks: true,
@@ -33,10 +36,10 @@ export default defineConfig({
         filter: ({ path }) => !path.startsWith("/do-not-render-me"),
 
         // Number of times to retry a failed prerender job
-        retryCount: 2,
+        retryCount: 1,
 
         // Delay between retries in milliseconds
-        retryDelay: 1000
+        retryDelay: 500
       }
     }),
     viteReact(),

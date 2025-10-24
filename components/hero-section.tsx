@@ -1,8 +1,19 @@
-"use client";
-
 import { Button } from "components/ui/button";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+
+const IMAGES = [
+  "/images/interchange.webp",
+  "/images/the-card-players.webp",
+  "/images/twelve-landscape-screens.webp",
+  "/images/empire-des-lumieres.webp",
+  "/images/flag.webp",
+  "/images/number-17a.webp",
+  "/images/orange-red-yellow.webp",
+  "/images/juin-octobre-1985.webp",
+  "/images/mont-sainte-victoire.webp",
+  "/images/onement-vi.webp"
+] as const;
 
 export function HeroSection() {
   function handleExploreClick() {
@@ -10,23 +21,8 @@ export function HeroSection() {
     artSection?.scrollIntoView({ behavior: "smooth" });
   }
 
-  const images = useMemo(
-    () => [
-      "/images/interchange.webp",
-      "/images/the-card-players.webp",
-      "/images/twelve-landscape-screens.webp",
-      "/images/empire-des-lumieres.webp",
-      "/images/flag.webp",
-      "/images/number-17a.webp",
-      "/images/orange-red-yellow.webp",
-      "/images/juin-octobre-1985.webp",
-      "/images/mont-sainte-victoire.webp",
-      "/images/onement-vi.webp"
-    ],
-    []
-  );
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState((0 + 1) % images.length);
+  const [nextIndex, setNextIndex] = useState(1);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [isFading, setIsFading] = useState(false);
 
@@ -35,11 +31,11 @@ export function HeroSection() {
     const FADE_MS = 1000;
     const fadeTimer = window.setTimeout(() => {
       setPrevIndex(currentIndex);
-      setNextIndex((currentIndex + 1) % images.length);
+      setNextIndex((currentIndex + 1) % IMAGES.length);
       setIsFading(true);
     }, SHOW_MS - FADE_MS);
     const switchTimer = window.setTimeout(() => {
-      setCurrentIndex(i => (i + 1) % images.length);
+      setCurrentIndex(i => (i + 1) % IMAGES.length);
       setIsFading(false);
     }, SHOW_MS);
 
@@ -47,12 +43,12 @@ export function HeroSection() {
       clearTimeout(fadeTimer);
       clearTimeout(switchTimer);
     };
-  }, [currentIndex, images.length]);
+  }, [currentIndex]);
 
   useEffect(() => {
     const preload = new Image();
-    preload.src = images[(currentIndex + 1) % images.length];
-  }, [currentIndex, images]);
+    preload.src = IMAGES[(currentIndex + 1) % IMAGES.length];
+  }, [currentIndex]);
 
   return (
     <section className="relative overflow-hidden pt-10">
@@ -102,12 +98,12 @@ export function HeroSection() {
             <div className="relative overflow-hidden border border-neutral-200 bg-neutral-100 shadow-sm">
               <div className="relative h-[500px] w-full md:aspect-[3/4] md:h-auto">
                 <img
-                  src={images[isFading ? nextIndex : currentIndex]}
+                  src={IMAGES[isFading ? nextIndex : currentIndex]}
                   alt="Artwork"
                   className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                  fetchPriority="low"
-                  decoding="async"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                   width={600}
                   height={800}
                 />
@@ -115,7 +111,7 @@ export function HeroSection() {
                   {isFading && prevIndex !== null ? (
                     <motion.img
                       key={prevIndex}
-                      src={images[prevIndex]}
+                      src={IMAGES[prevIndex]}
                       alt="Fading artwork"
                       className="absolute inset-0 h-full w-full object-cover"
                       initial={false}

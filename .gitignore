@@ -36,5 +36,6 @@ yarn-error.log*
 # service workers
 public/sw*
 public/swe-worker*
+
 # Local Netlify folder
 .netlify

@@ -59,11 +59,7 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className="overscroll-none antialiased"
-      suppressHydrationWarning
-    >
+    <html lang="en" className="overscroll-none antialiased">
       <head>
         <HeadContent />
       </head>
