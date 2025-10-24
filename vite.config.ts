@@ -12,41 +12,18 @@ export default defineConfig({
   ssr: {
     noExternal: ["motion/react", "sonner"]
   },
-  build: {
-    rollupOptions: {
-      output: {
-        inlineDynamicImports: true
-      }
-    }
-  },
   plugins: [
     tailwindcss(),
-    // Enables Vite to resolve imports using path aliases.
     tsconfigPaths(),
     tanstackStart({
-      srcDirectory: "./app", // This is the default
+      srcDirectory: "./app",
       router: {
-        // Specifies the directory TanStack Router uses for your routes.
-        routesDirectory: "./routes" // Defaults to "routes", relative to srcDirectory
+        routesDirectory: "./routes"
       },
       prerender: {
-        // Enable prerendering
         enabled: true,
-
-        // How many prerender jobs to run at once
-        concurrency: 4,
-
-        // Whether to extract links from the HTML and prerender them also
-        crawlLinks: true,
-
-        // Filter function takes the page object and returns whether it should prerender
-        filter: ({ path }) => !path.startsWith("/do-not-render-me"),
-
-        // Number of times to retry a failed prerender job
-        retryCount: 1,
-
-        // Delay between retries in milliseconds
-        retryDelay: 500
+        crawlLinks: true, // This will follow all links and prerender them
+        concurrency: 4
       }
     }),
     viteReact(),

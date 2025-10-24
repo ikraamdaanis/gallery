@@ -6,7 +6,9 @@ export function getRouter() {
     routeTree,
     scrollRestoration: true,
     defaultPreload: "intent",
-    defaultPendingMinMs: 0
+    defaultPreloadDelay: 0,
+    defaultPreloadStaleTime: 0,
+    defaultStructuralSharing: true
   });
 
   return router;
