@@ -11,9 +11,6 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/art/$id/")({
   component: ArtPiecePage,
-  loader: ({ params }) => {
-    return getArtPieceById(params.id);
-  },
   errorComponent: () => {
     return (
       <main className="bg-brand flex min-h-screen items-center justify-center pt-20">
