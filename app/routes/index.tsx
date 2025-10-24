@@ -4,13 +4,10 @@ import { HeroSection } from "components/hero-section";
 import { getFeaturedArtPieces } from "data/art-pieces";
 
 export const Route = createFileRoute("/")({
-  component: RouteComponent,
-  loader: () => getFeaturedArtPieces()
+  component: RouteComponent
 });
 
 function RouteComponent() {
-  const featuredArtPieces = Route.useLoaderData();
-
   return (
     <main>
       <HeroSection />
@@ -26,7 +23,7 @@ function RouteComponent() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {featuredArtPieces.map(artPiece => (
+            {getFeaturedArtPieces().map(artPiece => (
               <ArtCard key={artPiece.id} artPiece={artPiece} />
             ))}
           </div>

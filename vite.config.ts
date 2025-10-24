@@ -18,6 +18,25 @@ export default defineConfig({
       router: {
         // Specifies the directory TanStack Router uses for your routes.
         routesDirectory: "./routes" // Defaults to "routes", relative to srcDirectory
+      },
+      prerender: {
+        // Enable prerendering
+        enabled: true,
+
+        // How many prerender jobs to run at once
+        concurrency: 14,
+
+        // Whether to extract links from the HTML and prerender them also
+        crawlLinks: true,
+
+        // Filter function takes the page object and returns whether it should prerender
+        filter: ({ path }) => !path.startsWith("/do-not-render-me"),
+
+        // Number of times to retry a failed prerender job
+        retryCount: 2,
+
+        // Delay between retries in milliseconds
+        retryDelay: 1000
       }
     }),
     viteReact(),
