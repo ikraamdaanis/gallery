@@ -33,7 +33,7 @@ export function AcquirePieces() {
       </section>
       <div className="h-[500px] px-6 py-8 xl:py-16">
         <img
-          src="/images/mont-sainte-victoire.jpg"
+          src="/images/mont-sainte-victoire.webp"
           alt="About"
           className="mx-auto h-full w-full max-w-7xl object-cover"
         />

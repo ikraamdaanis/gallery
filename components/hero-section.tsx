@@ -12,16 +12,16 @@ export function HeroSection() {
 
   const images = useMemo(
     () => [
-      "/images/interchange.jpg",
-      "/images/the-card-players.jpg",
-      "/images/twelve-landscape-screens.jpg",
-      "/images/empire-des-lumieres.jpg",
-      "/images/flag.jpg",
-      "/images/number-17a.jpg",
-      "/images/orange-red-yellow.jpg",
-      "/images/juin-octobre-1985.jpg",
-      "/images/mont-sainte-victoire.jpg",
-      "/images/onement-vi.jpg"
+      "/images/interchange.webp",
+      "/images/the-card-players.webp",
+      "/images/twelve-landscape-screens.webp",
+      "/images/empire-des-lumieres.webp",
+      "/images/flag.webp",
+      "/images/number-17a.webp",
+      "/images/orange-red-yellow.webp",
+      "/images/juin-octobre-1985.webp",
+      "/images/mont-sainte-victoire.webp",
+      "/images/onement-vi.webp"
     ],
     []
   );
