@@ -1,5 +1,3 @@
-"use client";
-
 import { X } from "lucide-react";
 import type { ComponentProps, HTMLAttributes } from "react";
 import type {

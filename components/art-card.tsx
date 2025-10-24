@@ -1,5 +1,3 @@
-"use client";
-
 import { Link } from "@tanstack/react-router";
 import type { ArtPiece } from "data/art-pieces";
 import { formatPrice } from "data/art-pieces";

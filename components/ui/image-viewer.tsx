@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "components/ui/button";
 import { DialogContent, DialogOverlay } from "components/ui/dialog";
 import { X } from "lucide-react";

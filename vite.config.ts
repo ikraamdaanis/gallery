@@ -12,6 +12,13 @@ export default defineConfig({
   ssr: {
     noExternal: ["motion/react", "sonner"]
   },
+  build: {
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true
+      }
+    }
+  },
   plugins: [
     tailwindcss(),
     // Enables Vite to resolve imports using path aliases.

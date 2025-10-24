@@ -1,5 +1,3 @@
-"use client";
-
 import { createFileRoute } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { getAllArtPieces } from "data/art-pieces";

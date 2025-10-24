@@ -1,5 +1,3 @@
-"use client";
-
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { Button } from "components/ui/button";
