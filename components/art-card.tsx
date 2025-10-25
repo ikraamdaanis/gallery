@@ -29,7 +29,7 @@ export function ArtCard({ artPiece }: { artPiece: ArtPiece }) {
             <div className="relative h-full w-full">
               <img
                 src={artPiece.imageUrl}
-                alt={`${artPiece.title} by ${artPiece.artist}`}
+                alt={artPiece.title}
                 className={cn(
                   "block h-full w-full object-cover transition-opacity duration-300"
                 )}
