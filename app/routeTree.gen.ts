@@ -9,104 +9,133 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CollectionIndexRouteImport } from './routes/collection/index'
-import { Route as AboutIndexRouteImport } from './routes/about/index'
-import { Route as ArtIdIndexRouteImport } from './routes/art/$id/index'
+import { Route as HomeRouteImport } from './routes/_home'
+import { Route as HomeIndexRouteImport } from './routes/_home/index'
+import { Route as HomeCollectionIndexRouteImport } from './routes/_home/collection/index'
+import { Route as HomeAboutIndexRouteImport } from './routes/_home/about/index'
+import { Route as HomeArtIdIndexRouteImport } from './routes/_home/art/$id/index'
 
-const IndexRoute = IndexRouteImport.update({
+const HomeRoute = HomeRouteImport.update({
+  id: '/_home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeIndexRoute = HomeIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => HomeRoute,
 } as any)
-const CollectionIndexRoute = CollectionIndexRouteImport.update({
+const HomeCollectionIndexRoute = HomeCollectionIndexRouteImport.update({
   id: '/collection/',
   path: '/collection/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => HomeRoute,
 } as any)
-const AboutIndexRoute = AboutIndexRouteImport.update({
+const HomeAboutIndexRoute = HomeAboutIndexRouteImport.update({
   id: '/about/',
   path: '/about/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => HomeRoute,
 } as any)
-const ArtIdIndexRoute = ArtIdIndexRouteImport.update({
+const HomeArtIdIndexRoute = HomeArtIdIndexRouteImport.update({
   id: '/art/$id/',
   path: '/art/$id/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => HomeRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutIndexRoute
-  '/collection': typeof CollectionIndexRoute
-  '/art/$id': typeof ArtIdIndexRoute
+  '/': typeof HomeIndexRoute
+  '/about': typeof HomeAboutIndexRoute
+  '/collection': typeof HomeCollectionIndexRoute
+  '/art/$id': typeof HomeArtIdIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutIndexRoute
-  '/collection': typeof CollectionIndexRoute
-  '/art/$id': typeof ArtIdIndexRoute
+  '/': typeof HomeIndexRoute
+  '/about': typeof HomeAboutIndexRoute
+  '/collection': typeof HomeCollectionIndexRoute
+  '/art/$id': typeof HomeArtIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about/': typeof AboutIndexRoute
-  '/collection/': typeof CollectionIndexRoute
-  '/art/$id/': typeof ArtIdIndexRoute
+  '/_home': typeof HomeRouteWithChildren
+  '/_home/': typeof HomeIndexRoute
+  '/_home/about/': typeof HomeAboutIndexRoute
+  '/_home/collection/': typeof HomeCollectionIndexRoute
+  '/_home/art/$id/': typeof HomeArtIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths: '/' | '/about' | '/collection' | '/art/$id'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/about' | '/collection' | '/art/$id'
-  id: '__root__' | '/' | '/about/' | '/collection/' | '/art/$id/'
+  id:
+    | '__root__'
+    | '/_home'
+    | '/_home/'
+    | '/_home/about/'
+    | '/_home/collection/'
+    | '/_home/art/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutIndexRoute: typeof AboutIndexRoute
-  CollectionIndexRoute: typeof CollectionIndexRoute
-  ArtIdIndexRoute: typeof ArtIdIndexRoute
+  HomeRoute: typeof HomeRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_home': {
+      id: '/_home'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_home/': {
+      id: '/_home/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof HomeIndexRouteImport
+      parentRoute: typeof HomeRoute
     }
-    '/collection/': {
-      id: '/collection/'
+    '/_home/collection/': {
+      id: '/_home/collection/'
       path: '/collection'
       fullPath: '/collection'
-      preLoaderRoute: typeof CollectionIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof HomeCollectionIndexRouteImport
+      parentRoute: typeof HomeRoute
     }
-    '/about/': {
-      id: '/about/'
+    '/_home/about/': {
+      id: '/_home/about/'
       path: '/about'
       fullPath: '/about'
-      preLoaderRoute: typeof AboutIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof HomeAboutIndexRouteImport
+      parentRoute: typeof HomeRoute
     }
-    '/art/$id/': {
-      id: '/art/$id/'
+    '/_home/art/$id/': {
+      id: '/_home/art/$id/'
       path: '/art/$id'
       fullPath: '/art/$id'
-      preLoaderRoute: typeof ArtIdIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof HomeArtIdIndexRouteImport
+      parentRoute: typeof HomeRoute
     }
   }
 }
 
+interface HomeRouteChildren {
+  HomeIndexRoute: typeof HomeIndexRoute
+  HomeAboutIndexRoute: typeof HomeAboutIndexRoute
+  HomeCollectionIndexRoute: typeof HomeCollectionIndexRoute
+  HomeArtIdIndexRoute: typeof HomeArtIdIndexRoute
+}
+
+const HomeRouteChildren: HomeRouteChildren = {
+  HomeIndexRoute: HomeIndexRoute,
+  HomeAboutIndexRoute: HomeAboutIndexRoute,
+  HomeCollectionIndexRoute: HomeCollectionIndexRoute,
+  HomeArtIdIndexRoute: HomeArtIdIndexRoute,
+}
+
+const HomeRouteWithChildren = HomeRoute._addFileChildren(HomeRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutIndexRoute: AboutIndexRoute,
-  CollectionIndexRoute: CollectionIndexRoute,
-  ArtIdIndexRoute: ArtIdIndexRoute,
+  HomeRoute: HomeRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

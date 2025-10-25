@@ -61,7 +61,7 @@ const eslintConfig = [
     }
   ],
   {
-    files: ["app/routes/__root.tsx"],
+    files: ["**/_*"],
     rules: {
       "filenames-simple/naming-convention": "off"
     }

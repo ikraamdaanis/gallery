@@ -3,7 +3,7 @@ import { ArtCard } from "components/art-card";
 import { HeroSection } from "components/hero-section";
 import { getFeaturedArtPieces } from "data/art-pieces";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_home/")({
   component: RouteComponent,
   loader: () => ({
     featuredArtPieces: getFeaturedArtPieces()

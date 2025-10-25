@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArtCard } from "components/art-card";
 import { getAllArtPieces } from "data/art-pieces";
 
-export const Route = createFileRoute("/collection/")({
+export const Route = createFileRoute("/_home/collection/")({
   component: CollectionPage
 });
 
