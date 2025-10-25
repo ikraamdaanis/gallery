@@ -26,7 +26,7 @@ export default defineConfig({
         concurrency: 4
       }
     }),
-    viteReact(),
-    netlify()
+    netlify(),
+    viteReact()
   ]
 });
