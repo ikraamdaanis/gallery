@@ -38,9 +38,9 @@ export const Route = createRootRoute({
     ],
     links: [{ rel: "stylesheet", href: appCss }]
   }),
-  shellComponent: RootDocument,
+  shellComponent: RootShell,
   component: RootComponent,
-  ssr: false,
+  ssr: true,
   notFoundComponent: () => {
     return (
       <main className="bg-brand flex h-[calc(100vh-10rem)] items-center justify-center pt-20">
@@ -63,19 +63,7 @@ export const Route = createRootRoute({
   }
 });
 
-function RootComponent() {
-  return (
-    <>
-      <Navigation />
-      <Outlet />
-      <AcquirePieces />
-      <Footer />
-      <Toaster position="top-center" richColors closeButton />
-    </>
-  );
-}
-
-function RootDocument({ children }: { children: ReactNode }) {
+function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="overscroll-none antialiased">
       <head>
@@ -86,5 +74,17 @@ function RootDocument({ children }: { children: ReactNode }) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function RootComponent() {
+  return (
+    <div>
+      <Navigation />
+      <Outlet />
+      <AcquirePieces />
+      <Footer />
+      <Toaster position="top-center" richColors closeButton />
+    </div>
   );
 }
