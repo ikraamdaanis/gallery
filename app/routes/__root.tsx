@@ -1,5 +1,5 @@
 import geistFont from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
-import playfairFont from "@fontsource-variable/playfair-display/files/playfair-display-latin-ext-wght-normal.woff2?url";
+import playfairFont from "@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2?url";
 import {
   createRootRoute,
   HeadContent,
