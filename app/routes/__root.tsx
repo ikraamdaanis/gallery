@@ -79,12 +79,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   return (
-    <div>
+    <>
       <Navigation />
       <Outlet />
       <AcquirePieces />
       <Footer />
       <Toaster position="top-center" richColors closeButton />
-    </div>
+    </>
   );
 }

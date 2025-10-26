@@ -7,7 +7,8 @@ export const Route = createFileRoute("/_home/")({
   component: RouteComponent,
   loader: () => ({
     featuredArtPieces: getFeaturedArtPieces()
-  })
+  }),
+  ssr: true
 });
 
 function RouteComponent() {
