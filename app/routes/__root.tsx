@@ -7,8 +7,12 @@ import {
   Outlet,
   Scripts
 } from "@tanstack/react-router";
+import { AcquirePieces } from "components/acquire-pieces";
+import { Footer } from "components/footer";
+import { Navigation } from "components/navigation";
 import { Button } from "components/ui/button";
 import type { ReactNode } from "react";
+import { Toaster } from "sonner";
 import appCss from "styles/globals.css?url";
 
 export const Route = createRootRoute({
