@@ -38,7 +38,9 @@ export const Route = createRootRoute({
     ],
     links: [{ rel: "stylesheet", href: appCss }]
   }),
+  shellComponent: RootDocument,
   component: RootComponent,
+  ssr: false,
   notFoundComponent: () => {
     return (
       <main className="bg-brand flex h-[calc(100vh-10rem)] items-center justify-center pt-20">
@@ -63,9 +65,13 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <RootDocument>
+    <>
+      <Navigation />
       <Outlet />
-    </RootDocument>
+      <AcquirePieces />
+      <Footer />
+      <Toaster position="top-center" richColors closeButton />
+    </>
   );
 }
 
