@@ -28,7 +28,6 @@ export const Route = createRootRoute({
   }),
   shellComponent: RootDocument,
   component: RootComponent,
-  ssr: false,
   notFoundComponent: () => {
     return (
       <main className="bg-brand flex h-[calc(100vh-10rem)] items-center justify-center pt-20">
