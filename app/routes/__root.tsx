@@ -1,3 +1,5 @@
+import geistFont from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+import playfairFont from "@fontsource-variable/playfair-display/files/playfair-display-latin-ext-wght-normal.woff2?url";
 import {
   createRootRoute,
   HeadContent,
@@ -17,6 +19,20 @@ export const Route = createRootRoute({
         name: "viewport",
         content:
           "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      },
+      {
+        rel: "preload",
+        href: geistFont,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous"
+      },
+      {
+        rel: "preload",
+        href: playfairFont,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous"
       },
       { title: "Sovereign Atelier - World's Most Exquisite Art Collection" }
     ],
