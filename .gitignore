@@ -40,3 +40,5 @@ public/swe-worker*
 # Local Netlify folder
 .netlify
 dist
+
+.tanstack

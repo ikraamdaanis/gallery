@@ -7,7 +7,7 @@ import { ArrowLeft, Heart, Share2 } from "lucide-react";
 import { motion } from "motion/react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/_home/art/$id/")({
+export const Route = createFileRoute("/art/$id/")({
   component: ArtPiecePage,
   errorComponent: () => {
     return (
