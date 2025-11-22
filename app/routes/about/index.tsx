@@ -161,7 +161,7 @@ function AboutPage() {
                     {location.region}
                   </div>
                 </div>
-                <div className="from-foreground/[0.02] absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="from-foreground/2 absolute inset-0 bg-linear-to-br to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </motion.div>
             ))}
           </div>

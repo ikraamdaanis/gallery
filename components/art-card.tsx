@@ -22,7 +22,7 @@ export function ArtCard({ artPiece }: { artPiece: ArtPiece }) {
       >
         <div className="relative overflow-hidden bg-neutral-100">
           <motion.div
-            className="aspect-[3/4] w-full"
+            className="aspect-3/4 w-full"
             animate={{ scale: isHovered ? 1.05 : 1 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >

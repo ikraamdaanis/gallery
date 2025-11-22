@@ -84,7 +84,7 @@ function ArtPiecePage() {
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
         <div className="relative">
           <div className="max-h-[800px] overflow-hidden lg:top-24">
-            <div className="relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-neutral-100 outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2">
+            <div className="relative aspect-3/4 w-full cursor-zoom-in overflow-hidden rounded-[2px] bg-neutral-100 outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2">
               <ImageViewer
                 src={artPiece.imageUrl}
                 alt={`${artPiece.title} by ${artPiece.artist}`}

@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 export function AcquirePieces() {
   return (
     <>
-      {" "}
       <section className="bg-neutral-50 py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <motion.div

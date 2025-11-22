@@ -52,8 +52,8 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden pt-10">
-      <div className="absolute -top-24 -left-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,200,168,0.32),transparent)] blur-2xl" />
-      <div className="absolute -right-24 -bottom-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgba(200,200,255,0.26),transparent)] blur-2xl" />
+      <div className="absolute -top-24 -left-24 h-144 w-xl rounded-full bg-[radial-gradient(closest-side,rgba(255,200,168,0.32),transparent)] blur-2xl" />
+      <div className="absolute -right-24 -bottom-24 h-144 w-xl rounded-full bg-[radial-gradient(closest-side,rgba(200,200,255,0.26),transparent)] blur-2xl" />
       <div className="relative mx-auto grid min-h-[80vh] max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-20 pb-10 md:grid-cols-2 md:py-20">
         <div className="order-1 md:order-1">
           <h1 className="mb-4 text-5xl font-light tracking-tight text-balance text-neutral-900 md:text-5xl lg:text-6xl xl:text-7xl">
@@ -96,7 +96,7 @@ export function HeroSection() {
             <div className="absolute -top-6 -left-6 h-20 w-20 bg-white/40 backdrop-blur-sm" />
             <div className="absolute -right-6 -bottom-6 h-24 w-24 bg-white/30 backdrop-blur-sm" />
             <div className="relative overflow-hidden border border-neutral-200 bg-neutral-100 shadow-sm">
-              <div className="relative h-[500px] w-full md:aspect-[3/4] md:h-auto">
+              <div className="relative h-[500px] w-full md:aspect-3/4 md:h-auto">
                 <img
                   src={IMAGES[isFading ? nextIndex : currentIndex]}
                   alt="Artwork"
@@ -122,7 +122,7 @@ export function HeroSection() {
                   ) : null}
                 </AnimatePresence>
               </div>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
             </div>
           </div>
         </div>
