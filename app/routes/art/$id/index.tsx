@@ -184,12 +184,12 @@ function ArtPiecePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="flex flex-col gap-4 sm:flex-row"
+            className="flex flex-col items-end gap-2 sm:flex-row"
           >
             <Button
               size="lg"
               onClick={handleInquire}
-              className="flex-1 bg-neutral-900 text-white hover:bg-neutral-800"
+              className="w-full flex-1 bg-neutral-900 text-white hover:bg-neutral-800"
             >
               Inquire About This Piece
             </Button>
